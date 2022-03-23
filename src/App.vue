@@ -1,11 +1,7 @@
-<script>
-export default {
-  name: 'App',
-  data: () => ({ message: 'Hola mundo2' }),
-};
-</script>
-
 <template>
-  <div>{{ message }}</div>
+  <router-view></router-view>
 </template>
-¡>
+
+<style lang="sass">
+@import './scss/normalize.scss'
+</style>
