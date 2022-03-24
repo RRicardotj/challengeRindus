@@ -4,5 +4,5 @@ export default {
   name: 'HomeView',
   components: {
     SimpleLayout,
-  }
+  },
 };
