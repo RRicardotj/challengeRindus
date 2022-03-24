@@ -23,8 +23,38 @@
 <script>
 import Avatar from './Avatar.vue';
 export default {
+  name: 'PostCard',
   components: {
     Avatar,
+  },
+  props: {
+    avatar: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    author: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    date: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+    summary: {
+      type: String,
+      required: true,
+    },
+    postPicture: {
+      type: String,
+      required: true,
+    },
   },
 };
 </script>
@@ -32,13 +62,10 @@ export default {
 <style lang="scss">
 .post-card {
   padding: 0 0.5em;
-  :not(:last-child) {
-    margin-bottom: 1em;
-  }
 
   &__header {
     width: 100%;
-    height: 32px;
+    height: 48px;
     display: flex;
     align-items: center;
   }
@@ -58,6 +85,7 @@ export default {
 
   &__info {
     padding-right: 0.5em;
+    flex: 1 1 auto;
   }
 
   &__pic {

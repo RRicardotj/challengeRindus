@@ -1,10 +1,12 @@
 import SimpleLayout from '@/components/SimpleLayout.vue';
+import PostCard from './PostCardImplementation.vue';
 import { getAll } from '@/services/postService';
 
 export default {
   name: 'HomeView',
   components: {
     SimpleLayout,
+    PostCard,
   },
   data: () => ({
     posts: [],
