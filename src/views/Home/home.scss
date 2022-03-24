@@ -1,0 +1,11 @@
+.post-list {
+  width: 80%;
+  padding: 1rem;
+  margin: 0 auto;
+  
+  .post-card {
+    &:not(:last-child) {
+      margin-bottom: 3rem;
+    }
+  }
+}
