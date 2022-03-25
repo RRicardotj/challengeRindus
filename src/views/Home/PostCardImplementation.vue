@@ -6,6 +6,8 @@
     :summary="summary"
     :postPicture="postPicture"
     :date="date"
+    @edit="goToEdit"
+    @delete="deletePost"
   />
 </template>
 
@@ -36,7 +38,6 @@ export default {
     },
     postPicture() {
       const pic = generateFakeImagePost();
-      console.log(pic);
 
       return pic;
     },
@@ -46,7 +47,6 @@ export default {
     },
     avatar() {
       const pic = generateFakeAvatar();
-      console.log(pic);
       return pic;
     },
   },
@@ -54,6 +54,17 @@ export default {
     async fetchAuthor() {
       const user = await getUserDetails(this.post.userId);
       this.author = user.name;
+    },
+    goToEdit() {
+      this.$router.push({
+        name: 'edit-post',
+        params: {
+          postId: this.post.id,
+        },
+      });
+    },
+    deletePost() {
+      this.$emit('delete', this.post.id);
     },
   },
   mounted() {

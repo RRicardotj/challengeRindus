@@ -16,16 +16,30 @@
         <img alt="post picture" :src="postPicture" />
       </div>
     </div>
-    <div class="post-card__footer">Action Edit | Action Delete</div>
+    <div class="post-card__footer">
+      <button type="button" @click="emitEditAction">
+        <IconBase><IconEdit /></IconBase>
+      </button>
+      <button type="button" @click="emitDeleteAction">
+        <IconBase><IconGarbage /></IconBase>
+      </button>
+    </div>
   </div>
 </template>
 
 <script>
 import Avatar from './Avatar.vue';
+import IconBase from './Icons/IconBase.vue';
+import IconEdit from './Icons/IconEdit.vue';
+import IconGarbage from './Icons/IconGarbage.vue';
+
 export default {
   name: 'PostCard',
   components: {
     Avatar,
+    IconBase,
+    IconEdit,
+    IconGarbage,
   },
   props: {
     avatar: {
@@ -56,6 +70,14 @@ export default {
       required: true,
     },
   },
+  methods: {
+    emitEditAction() {
+      this.$emit('edit');
+    },
+    emitDeleteAction() {
+      this.$emit('delete');
+    },
+  },
 };
 </script>
 
@@ -68,6 +90,21 @@ export default {
     height: 48px;
     display: flex;
     align-items: center;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5em;
+
+    button {
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      :not(:last-child) {
+        margin-right: 0.5em;
+      }
+    }
   }
 
   &__author {
