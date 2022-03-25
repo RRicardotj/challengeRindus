@@ -1,7 +1,12 @@
 <template>
   <SimpleLayout>
     <section id="postlist" class="post-list">
-      <PostCard v-for="post in posts" :key="post.id" :post="post" />
+      <PostCard
+        v-for="post in posts"
+        :key="post.id"
+        :post="post"
+        @delete="deletePost"
+      />
     </section>
   </SimpleLayout>
 </template>

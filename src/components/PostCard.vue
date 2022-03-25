@@ -17,10 +17,10 @@
       </div>
     </div>
     <div class="post-card__footer">
-      <button type="button">
+      <button type="button" @click="emitEditAction">
         <IconBase><IconEdit /></IconBase>
       </button>
-      <button type="button">
+      <button type="button" @click="emitDeleteAction">
         <IconBase><IconGarbage /></IconBase>
       </button>
     </div>
@@ -68,6 +68,14 @@ export default {
     postPicture: {
       type: String,
       required: true,
+    },
+  },
+  methods: {
+    emitEditAction() {
+      this.$emit('edit');
+    },
+    emitDeleteAction() {
+      this.$emit('delete');
     },
   },
 };
