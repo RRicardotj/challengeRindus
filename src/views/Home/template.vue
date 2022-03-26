@@ -1,12 +1,7 @@
 <template>
   <SimpleLayout>
     <section id="postlist" class="post-list">
-      <PostCard
-        v-for="post in posts"
-        :key="post.id"
-        :post="post"
-        @delete="deletePost"
-      />
+      <PostCard v-for="post in posts" :key="post.id" :post="post" />
       <div v-if="isLoadingPosts">...Loading</div>
       <button type="button" class="post-list__add-more" @click="goToCreatePost">
         +
