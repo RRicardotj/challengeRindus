@@ -20,6 +20,9 @@ export default {
   align-items: center;
   position: sticky;
   box-shadow: 0px -2px 10px rgb(0 0 0 / 15%);
+  background: #fff;
+  z-index: 10;
+  top: 0;
 
   &__logo {
     font-size: 24px;

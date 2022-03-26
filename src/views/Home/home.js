@@ -12,6 +12,9 @@ export default {
     posts: [],
   }),
   methods: {
+    goToCreatePost() {
+      this.$router.push('/create-post');
+    },
     async getAllPosts() {
       try {
         const { data } = await getAll();
