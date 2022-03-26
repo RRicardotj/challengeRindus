@@ -7,7 +7,9 @@
         :post="post"
         @delete="deletePost"
       />
-      <button type="button" class="post-list__add-more">+</button>
+      <button type="button" class="post-list__add-more" @click="goToCreatePost">
+        +
+      </button>
     </section>
   </SimpleLayout>
 </template>
