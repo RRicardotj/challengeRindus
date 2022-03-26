@@ -19,7 +19,7 @@ import generateFakeImagePost from '@/utils/generateFakeImagePost';
 
 export default {
   name: 'PostCardImplementation',
-  data: () => ({ author: '' }),
+  data: () => ({ author: '', avatar: '', postPicture: '' }),
   props: {
     post: {
       type: Object,
@@ -36,18 +36,9 @@ export default {
     summary() {
       return this.post.body;
     },
-    postPicture() {
-      const pic = generateFakeImagePost();
-
-      return pic;
-    },
     date() {
       // TODO: format date. For now it's just hardcoded.
       return '2022-03-23';
-    },
-    avatar() {
-      const pic = generateFakeAvatar();
-      return pic;
     },
   },
   methods: {
@@ -64,13 +55,21 @@ export default {
       });
     },
     deletePost() {
-      this.$emit('delete', this.post.id);
+      this.$store.dispatch('deletePost', this.post.id);
+    },
+    getFakePics() {
+      setTimeout(() => {
+        this.postPicture = generateFakeImagePost();
+        this.avatar = generateFakeAvatar();
+      }, 1000);
     },
   },
   mounted() {
     if (!this.author) {
       this.fetchAuthor();
     }
+
+    this.getFakePics();
   },
 };
 </script>
