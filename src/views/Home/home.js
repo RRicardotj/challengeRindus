@@ -1,6 +1,6 @@
 import SimpleLayout from '@/components/SimpleLayout.vue';
 import PostCard from './PostCardImplementation.vue';
-import { getAll, deletePost } from '@/services/postService';
+import { deletePost } from '@/services/postService';
 
 export default {
   name: 'HomeView',
@@ -8,22 +8,17 @@ export default {
     SimpleLayout,
     PostCard,
   },
-  data: () => ({
-    posts: [],
-  }),
+  computed: {
+    posts() {
+      return this.$store.state.posts;
+    },
+    isLoadingPosts() {
+      return this.$store.state.isLoadingPosts;
+    },
+  },
   methods: {
     goToCreatePost() {
       this.$router.push('/create-post');
-    },
-    async getAllPosts() {
-      try {
-        const { data } = await getAll();
-
-        this.posts = data;
-      } catch (e) {
-        // this should be handler with an error handler implementing some toast to show notifications
-        this.posts = null;
-      }
     },
     async deletePost(id) {
       if (!id) return;
@@ -36,10 +31,5 @@ export default {
         console.log('deletePost failed');
       }
     },
-  },
-  mounted() {
-    if (this.posts && !this.posts.length) {
-      this.getAllPosts();
-    }
   },
 };
