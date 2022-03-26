@@ -1,5 +1,10 @@
+import SimpleLayout from '@/components/SimpleLayout.vue';
+
 export default {
   name: 'CreatePost',
+  components: {
+    SimpleLayout,
+  },
   data: () => ({
     title: '',
     content: '',
