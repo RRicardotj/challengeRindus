@@ -58,10 +58,8 @@ export default {
       this.$store.dispatch('deletePost', this.post.id);
     },
     getFakePics() {
-      setTimeout(() => {
-        this.postPicture = generateFakeImagePost();
-        this.avatar = generateFakeAvatar();
-      }, 1000);
+      this.postPicture = generateFakeImagePost();
+      this.avatar = generateFakeAvatar();
     },
   },
   mounted() {
