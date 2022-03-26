@@ -13,12 +13,21 @@ export default {
 
 <style lang="scss" scoped>
 .header {
-  width: 100%;
   height: 56px;
   padding: 0 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: sticky;
+  box-shadow: 0px -2px 10px rgb(0 0 0 / 15%);
+  background: #fff;
+  z-index: 10;
+  top: 0;
+
+  &__logo {
+    font-size: 24px;
+    font-weight: 400;
+    font-style: italic;
+  }
 }
 </style>

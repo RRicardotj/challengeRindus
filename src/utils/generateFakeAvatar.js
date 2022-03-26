@@ -1,3 +1,5 @@
+import { faker } from '@faker-js/faker';
+
 export default function generateFakeAvatar() {
-  return 'https://i.pravatar.cc/300';
+  return faker.image.avatar();
 }

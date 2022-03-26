@@ -1,3 +1,5 @@
+import { faker } from '@faker-js/faker';
+
 export default function generateFakeImagePosts() {
-  return 'https://picsum.photos/500';
+  return faker.image.avatar();
 }
