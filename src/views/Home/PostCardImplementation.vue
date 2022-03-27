@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     async fetchAuthor() {
-      const user = await getUserDetails(this.post.userId);
+      const { data: user } = await getUserDetails(this.post.userId);
       this.author = user.name;
     },
     goToEdit() {
