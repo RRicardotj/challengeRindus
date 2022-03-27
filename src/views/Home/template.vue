@@ -1,7 +1,27 @@
 <template>
   <SimpleLayout>
     <section id="postlist" class="post-list">
-      <PostCard v-for="post in posts" :key="post.id" :post="post" />
+      <div class="post-list__toolbar">
+        <input
+          class="post-list__search"
+          placeholder="Searh posts..."
+          v-model="searchBy"
+        />
+        <button
+          class="post-list__order"
+          :class="{
+            'post-list__order__asc': orderAsc,
+            'post-list__order__desc': !orderAsc,
+          }"
+          :tilte="orderAsc ? 'Order ascending' : 'Order descending'"
+          @click="orderAsc = !orderAsc"
+        />
+      </div>
+      <PostCard
+        v-for="post in postsSortedFiltered"
+        :key="post.id"
+        :post="post"
+      />
       <div v-if="isLoadingPosts">...Loading</div>
       <button type="button" class="post-list__add-more" @click="goToCreatePost">
         +

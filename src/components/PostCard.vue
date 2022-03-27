@@ -109,6 +109,7 @@ export default {
 
   &__author {
     margin-left: 1em;
+    margin-right: 1em;
   }
 
   &__title {
