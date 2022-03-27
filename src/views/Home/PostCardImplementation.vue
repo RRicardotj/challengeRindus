@@ -47,12 +47,7 @@ export default {
       this.author = user.name;
     },
     goToEdit() {
-      this.$router.push({
-        name: 'edit-post',
-        params: {
-          postId: this.post.id,
-        },
-      });
+      this.$router.push(`/edit-post/${this.post.id}`);
     },
     deletePost() {
       this.$store.dispatch('deletePost', this.post.id);

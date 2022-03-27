@@ -1,5 +1,6 @@
 import SimpleLayout from '@/components/SimpleLayout.vue';
 import PostForm from '@/components/PostForm/template.vue';
+import { getById } from '@/services/postService';
 
 export default {
   name: 'EditPost',
@@ -9,8 +10,14 @@ export default {
   },
   data: () => ({ title: '', body: '', isEdit: false, id: '' }),
   methods: {
-    getPost() {
-      const post = this.$store.getPostById(this.$router.currentRoute.params.id);
+    async getPost() {
+      let post = this.$store.posts?.find((p) => p.id === this.$route.params.id);
+
+      if (!post) {
+        const { data } = await getById(this.$route.params.id);
+
+        post = data;
+      }
 
       if (post) {
         this.title = post.title;

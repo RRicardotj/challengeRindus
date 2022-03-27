@@ -1,7 +1,12 @@
 <template>
   <SimpleLayout>
     <section id="editPost" class="edit-post">
-      <PostForm :isEdit="true" v-model:title="title" v-model:body="body" />
+      <PostForm
+        :isEdit="true"
+        v-model:title="title"
+        v-model:body="body"
+        @submit="submit"
+      />
     </section>
   </SimpleLayout>
 </template>
