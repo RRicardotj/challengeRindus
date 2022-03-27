@@ -4,6 +4,10 @@ import PostsActions from './posts/actions';
 import PostsMutations from './posts/mutations';
 
 export const state = {
+  loggedUser: {
+    id: 1,
+    name: 'User Hardcoded',
+  },
   ...PostsState,
 };
 

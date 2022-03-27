@@ -1,37 +1,37 @@
 <template>
-  <section id="createPosts" class="create-posts">
-    <div class="create-posts__header">
-      <h1 class="create-posts__title">Create a new post</h1>
+  <div class="post-management">
+    <div class="post-management__header">
+      <h2 class="post-management__title">Create a new post</h2>
     </div>
-    <div class="create-posts__body">
-      <div class="create-posts__form">
+    <div class="post-management__body">
+      <div class="post-management__form">
         <form @submit.prevent="createPost" @keydown.enter.prevent="createPost">
-          <div class="create-posts__form-group">
+          <div class="post-management__form-group">
             <label for="title">Title</label>
             <input
               type="text"
               id="title"
               v-model="title"
-              class="create-posts__form-input"
+              class="post-management__form-input"
             />
           </div>
-          <div class="create-posts__form-group">
+          <div class="post-management__form-group">
             <label for="content">Content</label>
             <textarea
               id="content"
               v-model="body"
-              class="create-posts__form-input"
+              class="post-management__form-input"
             ></textarea>
           </div>
-          <div class="create-posts__form-group">
-            <button class="create-posts__form-button">
+          <div class="post-management__form-group">
+            <button class="post-management__form-button">
               {{ isEdit ? 'Edit' : 'Create' }}
             </button>
           </div>
         </form>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 
 <script src="./post-form"></script>
