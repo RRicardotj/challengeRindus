@@ -85,6 +85,11 @@ export default {
 .post-card {
   padding: 0 0.5em;
 
+  &__summary {
+    width: 100%;
+    white-space: break-spaces;
+  }
+
   &__header {
     width: 100%;
     height: 48px;
@@ -119,11 +124,15 @@ export default {
 
   &__body {
     display: flex;
+    width: 100%;
+    overflow: hidden;
   }
 
   &__info {
     padding-right: 0.5em;
     flex: 1 1 auto;
+    width: inherit;
+    overflow: hidden;
   }
 
   &__pic {
