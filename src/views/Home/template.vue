@@ -4,7 +4,7 @@
       <div class="post-list__toolbar">
         <input
           class="post-list__search"
-          placeholder="Searh posts..."
+          placeholder="Searh by title or content..."
           v-model="searchBy"
         />
         <button
