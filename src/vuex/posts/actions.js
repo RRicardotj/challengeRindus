@@ -10,11 +10,16 @@ export default {
       state.commit('setPosts');
     }
   },
-  async createPost(state, { title, content }) {
+  async createPost(state, { title, body }) {
     try {
-      await create({ title, content });
+      const { data } = await create({ title, body });
 
-      state.commit('addPost', { title, content });
+      state.commit('addPost', {
+        title,
+        body,
+        id: data.id,
+        userId: state.loggedUser?.id,
+      });
     } catch (e) {
       console.log('createPost failed');
     }
@@ -30,11 +35,11 @@ export default {
       console.log('deletePost failed');
     }
   },
-  async updatePost(state, { id, title, content }) {
+  async updatePost(state, { id, title, body }) {
     try {
-      await update(id, { title, content });
+      await update(id, { title, body });
 
-      state.commit('updatePost', { id, title, content });
+      state.commit('updatePost', { id, title, body });
     } catch (e) {
       console.log('updatePost failed');
     }
