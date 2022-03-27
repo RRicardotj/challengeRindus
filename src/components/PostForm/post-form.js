@@ -1,31 +1,32 @@
 export default {
   name: 'PostForm',
   props: {
-    post: {
-      type: Object,
+    isEdit: {
+      type: Boolean,
       required: false,
+      default: false,
+    },
+    title: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    body: {
+      type: String,
+      required: false,
+      default: '',
     },
   },
-  data: () => ({ title: '', body: '', isEdit: false }),
-  created() {
-    if (this.post) {
-      this.title = this.post.title;
-      this.body = this.post.body;
-      this.isEdit = true;
-    }
-  },
+  emits: ['update:title', 'update:body', 'submit'],
   methods: {
-    async submit() {
-      const { title, body } = this;
-      const payload = { title, body };
-
-      if (this.isEdit) {
-        payload.id = this.post.id;
-        await this.$store.dispatch('updatePost', payload);
-      } else {
-        await this.$store.dispatch('createPost', payload);
-      }
-      this.$router.push('/');
+    submit() {
+      this.$emit('submit');
+    },
+    onTitleInput(event) {
+      this.$emit('update:title', event.target.value);
+    },
+    onBodyInput(event) {
+      this.$emit('update:body', event.target.value);
     },
   },
 };

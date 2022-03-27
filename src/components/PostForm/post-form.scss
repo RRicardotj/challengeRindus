@@ -1,0 +1,26 @@
+.post-form {
+  &__form-group {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+
+    input {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    textarea {
+      height: 10rem;
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: none;
+    }
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+}

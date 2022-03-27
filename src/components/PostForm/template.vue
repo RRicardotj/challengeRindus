@@ -1,35 +1,41 @@
 <template>
-  <div class="post-management">
-    <div class="post-management__header">
-      <h2 class="post-management__title">Create a new post</h2>
+  <div class="post-form">
+    <div class="post-form__header">
+      <h2 class="post-form__title">Create a new post</h2>
     </div>
-    <div class="post-management__body">
-      <div class="post-management__form">
-        <form @submit.prevent="createPost" @keydown.enter.prevent="createPost">
-          <div class="post-management__form-group">
-            <label for="title">Title</label>
-            <input
-              type="text"
-              id="title"
-              v-model="title"
-              class="post-management__form-input"
-            />
-          </div>
-          <div class="post-management__form-group">
-            <label for="content">Content</label>
-            <textarea
-              id="content"
-              v-model="body"
-              class="post-management__form-input"
-            ></textarea>
-          </div>
-          <div class="post-management__form-group">
-            <button class="post-management__form-button">
-              {{ isEdit ? 'Edit' : 'Create' }}
-            </button>
-          </div>
-        </form>
-      </div>
+    <div class="post-form__body">
+      <form
+        class="post-form__form"
+        @submit.prevent="submit"
+        @keydown.enter.prevent="submit"
+      >
+        <div class="post-form__form-group">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            id="title"
+            class="post-form__form-input"
+            required
+            :value="title"
+            @input="onTitleInput"
+          />
+        </div>
+        <div class="post-form__form-group">
+          <label for="body">Content</label>
+          <textarea
+            id="body"
+            :value="body"
+            @input="onBodyInput"
+            class="post-form__form-input"
+            required
+          ></textarea>
+        </div>
+        <div class="post-form__form-group">
+          <button class="post-form__form-button">
+            {{ isEdit ? 'Edit' : 'Create' }}
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 </template>

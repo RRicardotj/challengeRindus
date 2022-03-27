@@ -7,4 +7,14 @@ export default {
     SimpleLayout,
     PostForm,
   },
+  data: () => ({ title: '', body: '' }),
+  methods: {
+    async submit() {
+      const { title, body } = this;
+      const payload = { title, body };
+
+      await this.$store.dispatch('createPost', payload);
+      this.$router.push('/');
+    },
+  },
 };
