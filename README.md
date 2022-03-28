@@ -1,14 +1,12 @@
-# awesome-posts
+# Challenge For Rindus
 
-This template should help get you started developing with Vue 3 in Vite.
+Hi! 👋
 
-## Recommended IDE Setup
+This was an amazing and funny challenge for me.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin).
+This project is a frontend client implementation for the api of `jsonplaceholder.typicode.com`
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+Consist in a series of posts. You can create them, read them, edit them, delete them and read and create comments for each post, as well.
 
 ## Project Setup
 
