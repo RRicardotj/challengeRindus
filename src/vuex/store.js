@@ -5,6 +5,12 @@ import PostsMutations from './posts/mutations';
 import UsersState from './users/state';
 import UsersActions from './users/actions';
 import UsersMutations from './users/mutations';
+import PostFoundState from './post/state';
+import PostFoundActions from './post/actions';
+import PostFoundMutations from './post/mutations';
+import CommentsState from './comments/state';
+import CommentsActions from './comments/actions';
+import CommentsMutations from './comments/mutations';
 
 export const state = {
   loggedUser: {
@@ -13,16 +19,22 @@ export const state = {
   },
   ...PostsState,
   ...UsersState,
+  ...PostFoundState,
+  ...CommentsState,
 };
 
 export const mutations = {
   ...PostsMutations,
   ...UsersMutations,
+  ...PostFoundMutations,
+  ...CommentsMutations,
 };
 
 export const actions = {
   ...PostsActions,
   ...UsersActions,
+  ...PostFoundActions,
+  ...CommentsActions,
 };
 
 export const getters = {
