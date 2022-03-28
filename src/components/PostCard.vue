@@ -5,7 +5,7 @@
       <span class="post-card__author">{{ author }}</span>
       <span class="post-card__date" v-if="date">{{ date }}</span>
     </div>
-    <div class="post-card__body">
+    <div class="post-card__body" @click="emitSelectCard">
       <div class="post-card__info">
         <h2 class="post-card__title">{{ title }}</h2>
         <span class="post-card__summary">
@@ -77,6 +77,9 @@ export default {
     emitDeleteAction() {
       this.$emit('delete');
     },
+    emitSelectCard() {
+      this.$emit('select');
+    },
   },
 };
 </script>
@@ -126,6 +129,7 @@ export default {
     display: flex;
     width: 100%;
     overflow: hidden;
+    cursor: pointer;
   }
 
   &__info {
