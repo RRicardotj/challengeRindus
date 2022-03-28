@@ -1,14 +1,12 @@
 <template>
   <div class="post-form">
     <div class="post-form__header">
-      <h2 class="post-form__title">Create a new post</h2>
+      <h2 class="post-form__title">
+        {{ isEdit ? 'Edit post' : 'Create a new post' }}
+      </h2>
     </div>
     <div class="post-form__body">
-      <form
-        class="post-form__form"
-        @submit.prevent="submit"
-        @keydown.enter.prevent="submit"
-      >
+      <form class="post-form__form" @submit.prevent="submit">
         <div class="post-form__form-group">
           <label for="title">Title</label>
           <input

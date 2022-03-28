@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <div class="header__logo">Ricardo's Posts</div>
+    <div class="header__logo" @click="$router.push('/')">Ricardo's Posts</div>
     <div class="header__user-info"></div>
   </header>
 </template>
@@ -28,6 +28,7 @@ export default {
     font-size: 24px;
     font-weight: 400;
     font-style: italic;
+    cursor: pointer;
   }
 }
 </style>
