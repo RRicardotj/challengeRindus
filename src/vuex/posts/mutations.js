@@ -20,7 +20,8 @@ export default {
     );
 
     if (postIndex > -1) {
-      state.posts[postIndex] = updatedPost;
+      state.posts[postIndex] = { ...state.posts[postIndex], ...updatedPost };
+      state.postsFound[id] = state.posts[postIndex];
     }
     state.isLoadingPosts = false;
     state.fetchPostsState = 'NONE';
