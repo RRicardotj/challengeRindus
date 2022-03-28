@@ -8,12 +8,12 @@
     :date="date"
     @edit="goToEdit"
     @delete="deletePost"
+    @select="$router.push(`/post/${post.id}`)"
   />
 </template>
 
 <script>
 import PostCard from '@/components/PostCard.vue';
-import generateFakeAvatar from '@/utils/generateFakeAvatar';
 import generateFakeImagePost from '@/utils/generateFakeImagePost';
 
 export default {

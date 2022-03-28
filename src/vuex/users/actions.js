@@ -6,8 +6,6 @@ export default {
     try {
       const { data } = await getUserDetails(userId);
 
-      console.log('data', data);
-
       state.commit('fetchUserSuccess', { userId, user: data });
     } catch (e) {
       state.commit('fetchUserError', { userId, error: e });

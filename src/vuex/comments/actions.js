@@ -1,7 +1,7 @@
 import { getPostComments } from '../../services/postService';
 
 export default {
-  async getComments(state, postId) {
+  async getCommentsByPostId(state, postId) {
     state.commit('startFetchComments', postId);
     try {
       const { data } = await getPostComments(postId);
