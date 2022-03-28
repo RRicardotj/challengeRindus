@@ -10,6 +10,7 @@ export default {
     SimpleLayout,
     Avatar,
   },
+  data: () => ({ email: '', commentToLeave: '' }),
   computed: {
     post() {
       const postFound = this.$store.state.postsFound[this.$route.params.postId];
@@ -42,6 +43,20 @@ export default {
     },
     generateFakeAvatar() {
       return generateFakeAvatar();
+    },
+    leaveComment() {
+      const { email, commentToLeave } = this;
+
+      this.$store.dispatch('leaveComment', {
+        postId: this.$route.params.postId,
+        comment: {
+          email,
+          body: commentToLeave,
+        },
+      });
+
+      this.email = '';
+      this.commentToLeave = '';
     },
   },
   mounted() {

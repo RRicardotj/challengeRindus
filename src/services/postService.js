@@ -10,6 +10,7 @@ export const getAll = () => postService.get('/');
 export const update = (id, data) => postService.put(`/${id}`, data);
 export const deletePost = (id) => postService.delete(`/${id}`);
 export const getPostComments = (id) => postService.get(`/${id}/comments`);
-export const createComment = (id) => postService.post(`/${id}/comments`);
+export const createComment = (id, data) =>
+  postService.post(`/${id}/comments`, data);
 
 export default postService;
