@@ -1,10 +1,12 @@
 import { getUserDetails } from '../../services/userService';
 
 export default {
-  getUser(state, postId) {
-    state.commit('startFetchUser', postId);
+  async fetchUser(state, userId) {
+    state.commit('startFetchUser', userId);
     try {
-      const { data } = getUserDetails(postId);
+      const { data } = await getUserDetails(userId);
+
+      console.log('data', data);
 
       state.commit('fetchUserSuccess', { userId, user: data });
     } catch (e) {

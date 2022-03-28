@@ -2,6 +2,9 @@ import { createStore } from 'vuex';
 import PostsState from './posts/state';
 import PostsActions from './posts/actions';
 import PostsMutations from './posts/mutations';
+import UsersState from './users/state';
+import UsersActions from './users/actions';
+import UsersMutations from './users/mutations';
 
 export const state = {
   loggedUser: {
@@ -9,14 +12,17 @@ export const state = {
     name: 'User Hardcoded',
   },
   ...PostsState,
+  ...UsersState,
 };
 
 export const mutations = {
   ...PostsMutations,
+  ...UsersMutations,
 };
 
 export const actions = {
   ...PostsActions,
+  ...UsersActions,
 };
 
 export const getters = {
