@@ -7,7 +7,7 @@ export default {
 
       state.commit('setPosts', data);
     } catch (e) {
-      state.commit('setPosts');
+      state.commit('failFetchPosts');
     }
   },
   async createPost(state, { title, body }) {
